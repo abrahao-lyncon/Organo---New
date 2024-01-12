@@ -1,7 +1,6 @@
 .banner{
     background-color: lightblue;
     text-align: center;
-    max-width: 100%;
-    margin: 0;
+    min-width: 100%;
 }
 
