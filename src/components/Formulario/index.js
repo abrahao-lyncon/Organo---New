@@ -14,12 +14,12 @@ const Formulario = ({aoNovoColaboradorCadastrado, times}) => {
   //Funções 
   const aoSalvar = (e) => {
     e.preventDefault()
-    aoNovoColaboradorCadastrado([
+    aoNovoColaboradorCadastrado({
       nome,
       cargo,
       imagem,
       time
-    ])
+  })
 
   }
 
