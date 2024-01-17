@@ -1,11 +1,15 @@
 import "./CampoTexto.css"
-import React from 'react'
 
-const CampoTexto = ({nome, placeholder}) => {
+const CampoTexto = ({nome, placeholder, aoAlterado, valor}) => {
+
+  const aoDigitado = (e) => {
+    aoAlterado(e.target.value)
+  }
+
   return (
     <div className="campo-texto">
     <label htmlFor={nome}>{nome}</label>
-    <input type="text" name={nome} id={nome} placeholder={placeholder} />
+    <input value={valor} onChange={aoDigitado} type="text" name={nome} id={nome} placeholder={placeholder} />
     </div>
   )
 }

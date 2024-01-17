@@ -1,12 +1,18 @@
 import "./Formulario.css"
-import React from 'react'
+import React, { useState } from 'react'
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao/Botao";
 
 const Formulario = () => {
 
+  const [nome, setNome] = useState("")
+  const [cargo, setCargo] = useState("")
+  const [imagem, setImagem] = useState("")
+  const [time, setTime] = useState("")
+
   const times = [
+    '',
     'Programação',
     'Front-End',
     'Data Science',
@@ -16,16 +22,43 @@ const Formulario = () => {
     'Inovação e Gestão'
   ]
 
+  //Funções 
+  const aoSalvar = (e) => {
+    e.preventDefault()
+    console.log("Mama", nome, cargo, imagem, time)
+  }
+
   return (
     <div>
         <section className="formulario">
-            <form>
+        <form onSubmit={aoSalvar}>
                 <h2>Preencha dos dados para criar o card do Colaborador</h2>
-                <CampoTexto nome="Nome" placeholder="Digite seu nome" />
-                <CampoTexto nome="Cargo" placeholder="Digite seu cargo" />
-                <CampoTexto nome="Imagem" placeholder="Endereço da Imagem (URL - GitHub)" />
-                <ListaSuspensa nome="Time" itens={times}  />
-                <Botao texto="Mame" />
+                <CampoTexto 
+                  nome="Nome" 
+                  placeholder="Digite seu nome" 
+                  valor={nome}
+                  aoAlterado={(valor) => {setNome(valor)}}
+                />
+                <CampoTexto 
+                  nome="Cargo" 
+                  placeholder="Digite seu cargo" 
+                  valor={cargo}
+                  aoAlterado={(valor) => { setCargo(valor)}}
+                />
+                <CampoTexto 
+                  nome="Imagem" 
+                  placeholder="Endereço da Imagem (URL - GitHub)" 
+                  valor={imagem}
+                  aoAlterado={(valor) => { setImagem(valor)}}
+                />
+                <ListaSuspensa 
+                  nome="Time" i
+                  itens={times}
+                  valor={time}
+                  placeholder="Escolha seu Time"
+                  aoAlterado={valor => setTime(valor)}  
+                />
+                <Botao texto="Criar Card" />
             </form>
         </section>
     </div>
