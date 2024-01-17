@@ -4,7 +4,7 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao/Botao";
 
-const Formulario = () => {
+const Formulario = ({aoNovoColaboradorCadastrado}) => {
 
   const [nome, setNome] = useState("")
   const [cargo, setCargo] = useState("")
@@ -25,7 +25,13 @@ const Formulario = () => {
   //Funções 
   const aoSalvar = (e) => {
     e.preventDefault()
-    console.log("Mama", nome, cargo, imagem, time)
+    aoNovoColaboradorCadastrado([
+      nome,
+      cargo,
+      imagem,
+      time
+    ])
+
   }
 
   return (
