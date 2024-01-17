@@ -43,16 +43,19 @@ function App() {
 
   const aoNovoCadastro = (colaborador) => {
     setColaboradores([...colaboradores,colaborador])
-    console.log(colaborador)
   }
 
   return (
     <>
     <Banner/>
-    <Formulario aoNovoColaboradorCadastrado={colaborador => aoNovoCadastro(colaborador)} />
-    <Time nome="Programation"/>
-    <Time nome="Front-End"/>
-    <Time nome="Data-Science"/>
+    <Formulario times={times.map(time => time.nome)} aoNovoColaboradorCadastrado={colaborador => aoNovoCadastro(colaborador)} />
+    {times.map(time => <Time 
+    key={time.nome} 
+    nome={time.nome} 
+    corPrimaria={time.corPrimaria} 
+    corSecundaria={time.corSecundaria} 
+    colaboradores={colaboradores}
+    />)}
     </>
   );
 }

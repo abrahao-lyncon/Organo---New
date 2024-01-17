@@ -4,23 +4,12 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao/Botao";
 
-const Formulario = ({aoNovoColaboradorCadastrado}) => {
+const Formulario = ({aoNovoColaboradorCadastrado, times}) => {
 
   const [nome, setNome] = useState("")
   const [cargo, setCargo] = useState("")
   const [imagem, setImagem] = useState("")
   const [time, setTime] = useState("")
-
-  const times = [
-    '',
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX & UI',
-    'Mobile',
-    'Inovação e Gestão'
-  ]
 
   //Funções 
   const aoSalvar = (e) => {
