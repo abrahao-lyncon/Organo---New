@@ -2,10 +2,11 @@ import './Colaborador.css'
 
 import React from 'react'
 
-const Colaborador = ({nome, cargo, imagem}) => {
+const Colaborador = ({nome, cargo, imagem, corPrimaria}) => {
   return (
-    <div className='colaborador'>
-        <div className='cabecalho'>
+    <div className='colaborador' >
+        <div className='cabecalho' style={{backgroundColor
+    :corPrimaria}}>
             <img src={imagem} alt={nome}/>
         </div>
         <div className='rodape'>
